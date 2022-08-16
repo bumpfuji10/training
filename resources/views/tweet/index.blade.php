@@ -9,6 +9,19 @@
 </head>
 <body>
   <h1>つぶやきアプリ</h1>
-  <p>{{ $name }}</p>
+  <div>
+    <p>投稿フォーム</p>
+    <!--- フォームタグ内にあるデータの送信先の指定と送信するHTTPメソッドを定義する。 --->
+    <form action="{{ route('tweet.create') }}" method="post">
+      @csrf
+      <laravel for="tweet-content">つぶやき</laravel>
+      <span>140文字まで</span>
+      <textarea id="tweet-content" type="text" name="tweet" placeholder="つぶやきを入力"></textarea>
+      @error('tweets')
+      <p style="color: red;">{{ $message }}</p>
+      @enderror
+      <button type="submit">投稿</button>
+    </form>
+  </div>
 </body>
 </html>
