@@ -37,8 +37,23 @@ return [
 
     'guards' => [
         'web' => [
+            // driverではログイン状態をどう管理するか指定している
             'driver' => 'session',
+            // providerではログイン情報と合致したユーザー情報をどうやって取得するかが書いてある。
             'provider' => 'users',
+        ],
+
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ],
+    ],
+
+    'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\user::class,
         ],
     ],
 
