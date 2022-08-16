@@ -4,7 +4,7 @@ namespace App\Http\Requests\Tweet;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,6 +16,11 @@ class CreateRequest extends FormRequest
         return true;
     }
 
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
     public function rules()
     {
         return [
@@ -26,5 +31,10 @@ class CreateRequest extends FormRequest
     public function tweet(): string
     {
         return $this->input('tweet');
+    }
+
+    public function id(): int
+    {
+        return (int) $this->route('tweetId');
     }
 }
