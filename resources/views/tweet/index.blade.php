@@ -17,7 +17,7 @@
       <laravel for="tweet-content">つぶやき</laravel>
       <span>140文字まで</span>
       <textarea id="tweet-content" type="text" name="tweet" placeholder="つぶやきを入力"></textarea>
-      @error('tweets')
+      @error('tweet')
       <p style="color: red;">{{ $message }}</p>
       @enderror
       <button type="submit">投稿</button>
